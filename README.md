@@ -17,6 +17,6 @@ Data kan også lives trækkes gennem kortforsyningens Web Feature Service :
 https://services.kortforsyningen.dk/service?request=GetCapabilities&version=1.0.0&ticket=08002cd91d930f8bf19d9c496c790712&servicename=dagi_gml2&service=WFS
 
 
-GETTING STARTET in Python:
+GETTING STARTET IN PYTHON:
 
 https://stackoverflow.com/questions/30447790/displaying-a-shapefile
