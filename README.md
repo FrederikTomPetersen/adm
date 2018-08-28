@@ -46,13 +46,13 @@ to access a data from a wfs in R simply use the gdal-utils package https://githu
 
 #defining the datasaourcename/wfs
 
--dsn <- http://geoserver.plandata.dk/geoserver/wfs?servicename=WFS
--ogrinfo(dsn,so=TRUE) # returns a list of valid "typenames", whis can be called with the following call
--ogr2ogr(dsn=, "LocalPlansDenmark.shp", "theme_pdk_lokalplan_vedtaget_v") # this will save the file to your wd
+    -dsn <- http://geoserver.plandata.dk/geoserver/wfs?servicename=WFS
+    -ogrinfo(dsn,so=TRUE) # returns a list of valid "typenames", whis can be called with the following call
+    -ogr2ogr(dsn=, "LocalPlansDenmark.shp", "theme_pdk_lokalplan_vedtaget_v") # this will save the file to your wd
 
 To read it in R I use the sf package, since many of the packages other functions are quite nice to have nearby when working with geospatial data
 
--sf::read_sf("LocalPlansDenmark.shp", crs = 25832)  
+    -sf::read_sf("LocalPlansDenmark.shp", crs = 25832)  
 
 Remember to adjust the crs to somethingf that work for your dataset- In Denmark we use the ETRS89/UTM zone 32N, EPSG:25832 CRS
 
