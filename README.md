@@ -45,32 +45,16 @@ http://example.com/geoserver/wfs?service=wfs&version=2.0.0&request=GetFeature&ty
 to access a data from a wfs in R simply use the gdal-utils package https://github.com/cran/gdalUtils  Heres an example
 
 #defining the datasaourcename/wfs
-dsn <- http://geoserver.plandata.dk/geoserver/wfs?servicename=WFS
-ogrinfo(dsn,so=TRUE) # returns a list of valid "typenames", whis can be called with the following call
-ogr2ogr(dsn=, "LocalPlansDenmark.shp", "theme_pdk_lokalplan_vedtaget_v") # this will save the file to your wd
+
+-dsn <- http://geoserver.plandata.dk/geoserver/wfs?servicename=WFS
+-ogrinfo(dsn,so=TRUE) # returns a list of valid "typenames", whis can be called with the following call
+-ogr2ogr(dsn=, "LocalPlansDenmark.shp", "theme_pdk_lokalplan_vedtaget_v") # this will save the file to your wd
 
 To read it in R I use the sf package, since many of the packages other functions are quite nice to have nearby when working with geospatial data
 
-sf::read_sf("LocalPlansDenmark.shp", crs = 25832)  
+-sf::read_sf("LocalPlansDenmark.shp", crs = 25832)  
 
 Remember to adjust the crs to somethingf that work for your dataset- In Denmark we use the ETRS89/UTM zone 32N, EPSG:25832 CRS
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-https://services.kortforsyningen.dk/service?request=GetCapabilities&version=1.0.0&ticket=08002cd91d930f8bf19d9c496c790712&servicename=dagi_gml2&service=WFS
-
-
-GETTING STARTET IN PYTHON:
-
+GETTING STARTET IN PYTHON SEE:
 https://stackoverflow.com/questions/30447790/displaying-a-shapefile
