@@ -9,7 +9,6 @@ Rasterdata is images with a certain pixel resolution which gives the rasterdatas
 
 My favorite way to access raster data is through Web Map Services.
 
-
 # Vectordata
 Vectordata is your typical data but with the addition of a geography. the geography can either be a point, a line and a polygon. These types of data needs geograpically consistency. For example the outline of a polygon can not intersect it self. 
 
@@ -21,9 +20,26 @@ Shapefiles (.shp) is by far the easiest way to distribute static datafiles. The 
 Shapefiles can be downloaded all over the internet - simply serach for what you are looking for. 
 Here is a link to the national boundaries of the world: https://geonode.wfp.org/layers/geonode%3Awld_bnd_adm0_wfp
 
-
 # WFS services
 Web Feature Services are by far my most favorite way to access data. The WFS is distrubte though a geoserver, which typically is connected to a database. The Geoserver fetches data from a database, and then distribute the data as a service. The major advantage of the WFS is taht once you have set uo your connection you wil lalways be provided with the latest dataset of the specific theme/maplayer requestet.
+
+The WFS is called through a URL which for example could look like: 
+http://example.com/geoserver/wfs?service=wfs&version=2.0.0
+
+When called in a non example you should return a GML
+
+The version parametre is useally 1.1.1  -  2.0.0 or 1.2.1
+
+Depending on the purpose different parameters should be added to the base URL of the WFS. For example add:
+
+    -request=GetCapabilities    This will return an overview of the datacontained in the wfs - metadata time!
+    -request=GetFeature   	    Returns a selection of features from a data source including geometry and attribute values
+
+example
+http://example.com/geoserver/wfs?service=wfs&version=2.0.0request=GetCapabilities
+
+If you want to request a feature you also need to define the typeNames parametre. in the example the "namespace::featuretype" need to be exchanged with the names given by the GetCapabilities request.
+http://example.com/geoserver/wfs?service=wfs&version=2.0.0&request=GetFeature&typeNames=namespace:featuretype
 
 
 
